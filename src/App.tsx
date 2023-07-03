@@ -42,7 +42,14 @@ function App() {
 
     return (
         <ChakraProvider>
-            <Box bg="#faf9f4" w="100%" h="100vh" paddingTop="12" className="">
+            <Box
+                bg="#faf9f4"
+                w="100%"
+                h="99vh"
+                paddingTop="2"
+                paddingBottom="2"
+                className=""
+            >
                 {/* Navbar */}
                 <Navbar
                     from={fetchedData.from}

@@ -49,11 +49,14 @@ const Chatroom = (props: {
 
     const [oldChats, setOldChats] = useState<Chats>(props.chats);
     const [pageNumber, setPageNumber] = useState(1);
-    const [numberOfChats, setNumberOfChats] = useState<number>(10);
+
     useEffect(() => {
         setOldChats(props.chats);
     }, [props.chats]);
-    console.log(numberOfChats);
+    console.log(oldChats?.length);
+    const [numberOfChats, setNumberOfChats] = useState<number>(
+        props.chats?.length | 10
+    );
 
     const fetchMoreData = () => {
         setPageNumber(pageNumber + 1);
@@ -74,7 +77,7 @@ const Chatroom = (props: {
     return (
         <div
             id="scrollableDiv"
-            className="flex w-[100%] h-[72%] flex-col-reverse overflow-y-auto z-0"
+            className="flex w-[100%] h-[80%] flex-col-reverse overflow-y-auto"
         >
             <InfiniteScroll
                 dataLength={numberOfChats!}
